@@ -1,28 +1,44 @@
 from Member import Member
-from Student import  Student
+from Student import Student
+from Instructor import Instructor
+
+members = [Student("hh", "gg", "hh", "hh", "gg", "gg")]
+print(members[0].Lastname)
+
+
 def login():
-    studentid=1000
-    in1=input("welcome to university select you status 1-student  2-instructor  3-esducation secretary ")
-    name=input("enter your name : ")
-    lastname=input("enter your last name: ")
-    fathersname=input("enter your fathersname")
+
+    studentid = 1000
+    in1 = int(input("welcome to university select you status 1-student  2-instructor  3-esducation secretary "))
+    name = input("enter your name : ")
+
+    lastname = input("enter your last name: ")
+    fathersname = input("enter your fathersname")
+    username = input("enter your user name: ")
+    password = input("enter your password:")
+    if in1 == 1:
+        studentid = studentid + 1
+        print("your studentid is: " + str(studentid))
+        student = Student(name, lastname, fathersname, username, password, studentid)
+        members.append(student)
 
 
-student=Student("hani","sadri","yousef","haniehsadri","haniehsadri",1234)
-member = Member("hani", "ss", "hh", "ss", "gg")
+    if in1 == 2:
+       instructor = Instructor(name, lastname, fathersname, username, password)
+       members.append(instructor)
 
-members=[]
-members.append(student)
+# if in1 == 3:
+# educationsecretary = Educationsecretary(name, lastname, fathersname, username, password)
+# members.append(educationsecretary)
 
-members.append(member)
+
 def search(members, username, password):
-
     for letter in members:
-        if isinstance(letter,Student):
+        if isinstance(letter, Student):
             print("welcome student")
             print(members.index(letter))
         elif letter.getUsername() == username and letter.getPassword() == password:
-            return members.index(letter)
+            print(members.index(letter))
 
-search(members,"ss","gg")
-
+login()
+print(members[1].getLastname)
