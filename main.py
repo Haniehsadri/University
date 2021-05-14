@@ -1,9 +1,11 @@
 from Member import Member
 from Student import Student
 from Instructor import Instructor
+from Educatinsecretary import  Educationsecretary
+from Course import Course
 
-members = [Student("hh", "gg", "hh", "hh", "gg", "gg")]
-print(members[0].Lastname)
+members = []
+courses=[]
 
 
 def login():
@@ -23,13 +25,32 @@ def login():
         members.append(student)
 
 
+
     if in1 == 2:
        instructor = Instructor(name, lastname, fathersname, username, password)
        members.append(instructor)
 
-# if in1 == 3:
-# educationsecretary = Educationsecretary(name, lastname, fathersname, username, password)
-# members.append(educationsecretary)
+    if in1 == 3:
+        educationsecretary = Educationsecretary(name, lastname, fathersname, username, password)
+        members.append(educationsecretary)
+        yesorno=int(input("do you want to add course ? 1- yes  2- no "))
+        if yesorno==1:
+            titleofcours=input("enter the title of course:")
+            idofcours=input("enter the id of course")
+            course=Course(titleofcours,idofcours)
+            for i in members:
+                if isinstance(i, Instructor):
+                    print(i.printinformation())
+            instructorofcourse=input("enter the instructor of course lastname from the list : ")
+            for i in members:
+                if isinstance(i,Instructor) and i.getLastname()==instructorofcourse:
+                    course.setInstructor(instructorofcourse)
+
+            vacancyofcourse=input("enter the vacancy of course: ")
+            course.setVacancy(vacancyofcourse)
+
+
+
 
 
 def search(members, username, password):
@@ -41,4 +62,4 @@ def search(members, username, password):
             print(members.index(letter))
 
 login()
-print(members[1].getLastname)
+print(members[1].getFathersname())

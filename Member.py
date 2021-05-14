@@ -9,6 +9,7 @@ class Member:
     def getName(self):
         return self.Name
 
+
     def setName(self, Name):
         self.Name = Name
 
@@ -36,3 +37,8 @@ class Member:
 
     def setUsername(self, Password):
         self.Password = Password
+
+
+
+    def printinformation(self):
+        print("name :" +self.getName() + "lastname:" +self.getLastname())
