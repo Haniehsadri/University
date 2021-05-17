@@ -13,7 +13,7 @@ class Member:
     def setName(self, Name):
         self.Name = Name
 
-    @property
+
     def getLastname(self):
         return self.Lastname
 
@@ -41,4 +41,4 @@ class Member:
 
 
     def printinformation(self):
-        print("name :" +self.getName() + "lastname:" +self.getLastname())
+        print(self.getLastname())

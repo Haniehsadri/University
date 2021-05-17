@@ -4,6 +4,8 @@ class Course:
     def __init__(self, Title, Id):
         self.Title = Title
         self.Id = Id
+        self.studentsOfCourse = []
+        self.gradesofcourse = []
 
     def getTitle(self):
         return self.Title
@@ -28,3 +30,10 @@ class Course:
 
     def setId(self, Id):
         self.Id = Id
+
+    def printinformation(self):
+        print(self.getId(), self.getTitle()
+              , self.getInstructor(), self.getVacancy())
+
+    def addstudent(self,student):
+        self.studentsOfCourse.append(student)
