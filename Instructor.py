@@ -22,8 +22,11 @@ class Instructor(Member):
             grad = input("enter student's grad: ")
             grade = Grade(grad,self. coursesofinstructor[currentcourse],student)
             student.studentgrades.append(grade)
+            self.coursesofinstructor[currentcourse].gradesofcourse.append(grade)
 
-        # self.coursesofinstructor[currentcourse].gradesofcourse.append(grade)
-        # self.coursesofinstructor[currentcourse].gradesofcourse.append(grade)
+
+
+
+
     def printinformation(self):
         print(self.getLastname())

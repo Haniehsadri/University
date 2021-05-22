@@ -24,6 +24,7 @@ def signup():
         while True:
             yesorno = input("do you want to register course? 1- yes  2-no")
             if yesorno == "1":
+
                 members[currentmember].courseRegister(courses)
             if yesorno == "2":
                 break
@@ -34,24 +35,13 @@ def signup():
         while True:
             yesorno = int(input("do you want to add course ? 1- yes  2- no "))
             if yesorno == 1:
+                members[currentmember].addcourse(members,courses)
 
-                titleofcours = input("enter the title of course:")
-                idofcours = input("enter the id of course")
-                vacancy = input("enter the vacancy")
-                course = Course(titleofcours, idofcours)
-                course.setVacancy(vacancy)
-                for i in members:
-                    # print(isinstance(i, Instructor))
-                    if isinstance(i, Instructor):
-                        print(i.getLastname())
-                instructorofcourse = input("enter the instructor of course lastname from the list : ")
-                for letter in members:
-                    if isinstance(letter, Instructor) and letter.getLastname() == instructorofcourse:
-                        course.setInstructor(instructorofcourse)
-                        letter.coursesofinstructor.append(course)
-                        courses.append(course)
-            if yesorno == 2 :
+
+            if yesorno == 2:
                 break
+        while True:
+            yesno=input("do you want to see courses informations?")
 
 
 def signin():
@@ -85,10 +75,27 @@ def search(members, username, password):
     return -1
 
 
+def changepassword(members, currentmember):
+    while True:
+        oldpassword = input("enter your password : ")
+        if members[currentmember].getPassword() == oldpassword:
+            newpassword = input("enter your new password:")
+            confirmatiom = input("repeat your new password for confirmatio :")
+            if newpassword == confirmatiom:
+                members[currentmember].setPassword(newpassword)
+                print(" your password changed")
+                break
+
+        else:
+            print("the repeat of your password dos not match to you new password or your old password is not correct ")
+
+
+signin()
 signin()
 signin()
 signin()
 print("signup")
+signup()
 signup()
 signup()
 signup()
