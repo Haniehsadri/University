@@ -24,7 +24,6 @@ def signup():
         while True:
             yesorno = input("do you want to register course? 1- yes  2-no")
             if yesorno == "1":
-
                 members[currentmember].courseRegister(courses)
             if yesorno == "2":
                 break
@@ -35,18 +34,30 @@ def signup():
         while True:
             yesorno = int(input("do you want to add course ? 1- yes  2- no "))
             if yesorno == 1:
-                members[currentmember].addcourse(members,courses)
-
+                members[currentmember].addcourse(members, courses)
 
             if yesorno == 2:
                 break
         while True:
-            yesno=input("do you want to see courses informations?")
+            yesno = input("do you want to see courses informations? 1- yes 2- no ")
+            if yesno == "1":
+
+                for course in courses:
+                    if len(course.studentsOfCourse) != 0:
+                        print("course title:", course.getTitle(), "course id: ", course.getId()
+                              , )
+                courseid = input("enter the course Id : ")
+                for c in courses:
+                    if c.getId() == courseid:
+                        currentcourse = courses.index(c)
+                courses[currentcourse].studentinformation()
+            if yesno == "2":
+                break
 
 
 def signin():
     studentid = 1000
-    in1 = input("welcome to university select you status 1-student  2-instructor  3-esducation secretary ")
+    in1 = input(" select your status 1-student  2-instructor  3-esducation secretary ")
     name = input("enter your name : ")
 
     lastname = input("enter your last name: ")
@@ -90,13 +101,12 @@ def changepassword(members, currentmember):
             print("the repeat of your password dos not match to you new password or your old password is not correct ")
 
 
-signin()
-signin()
-signin()
-signin()
-print("signup")
-signup()
-signup()
-signup()
-signup()
-signup()
+while True:
+    siginorup = input("welcome to university select to 1-signin or 2-signup:")
+    if siginorup == "1":
+      signin()
+    if siginorup=="2":
+        signup()
+    yesorno=input("do you want to continue? 1- yes 2- no ")
+    if yesorno=="1 ":
+        break

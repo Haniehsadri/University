@@ -34,11 +34,12 @@ class Course:
         print("Id:", self.getId(), "Title :", self.getTitle()
               , "Instructor: ", self.getInstructor(), "vacancy:", self.getVacancy())
 
-    def studentsinformation(self):
+    def studentinformation(self):
         if len(self.gradesofcourse) > 0:
             for s in self.gradesofcourse:
                 print("name", s.student.getName(), "lastname:", s.student.getLastname(),
-                      "studentId:", s.student.getStudentid(), "student grade: ", s.grade)
+                     "studentId:", s.student.getStudentid(), "student grade: ", s.grade)
+            print ("course vareage :" ,self.courseaverage() )
         else:
             print("the grades are not available ")
             for s in self.studentsOfCourse:
@@ -54,4 +55,4 @@ class Course:
             sum2.append(int (grade.grade))
 
         if len(sum2)!=0:
-            average=sum (sum2)/len(sum2)
+           return sum (sum2)/len(sum2)

@@ -4,12 +4,12 @@ from Grade import Grade
 
 class Instructor(Member):
 
+
     def __init__(self, Name, Lastename, Fathersname, Username, Password):
         super().__init__(Name, Lastename, Fathersname, Username, Password)
         self.coursesofinstructor = []
 
-
-
+    currentcourse=0
     def grade(self):
         for course in self.coursesofinstructor:
             print(course.getTitle(), course.getId())
